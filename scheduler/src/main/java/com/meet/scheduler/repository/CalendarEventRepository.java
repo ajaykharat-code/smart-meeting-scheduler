@@ -41,4 +41,15 @@ public interface CalendarEventRepository extends JpaRepository<CalendarEvent, UU
     List<CalendarEvent> findAllForUsersInWindow(@Param("userIds") List<UUID> userIds,
                                                 @Param("start") Instant start,
                                                 @Param("end") Instant end);
+
+    @Query("""
+            SELECT e FROM CalendarEvent e 
+            WHERE e.user.id IN :userIds
+            AND e.end > :start 
+            AND e.start < :end
+    """)
+    List<CalendarEvent> findAllByUserIdsAndRange(
+            @Param("userIds") List<UUID> userIds,
+            @Param("start") Instant start,
+            @Param("end") Instant end);
 }
