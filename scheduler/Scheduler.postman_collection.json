@@ -1,0 +1,100 @@
+{
+	"info": {
+		"_postman_id": "d05294ac-4d70-4be6-8afb-9af8fa97ae92",
+		"name": "Scheduler",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "39135391"
+	},
+	"item": [
+		{
+			"name": "Get Calender Event (All)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/users/0b5a5156-1c90-424d-b41d-b9580a01ebf5/calendar?start=2025-08-22T03:00:00Z&end=2025-08-22T07:00:00Z",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"0b5a5156-1c90-424d-b41d-b9580a01ebf5",
+						"calendar"
+					],
+					"query": [
+						{
+							"key": "start",
+							"value": "2025-08-22T03:00:00Z"
+						},
+						{
+							"key": "end",
+							"value": "2025-08-22T07:00:00Z"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Calender Event (Daily)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/users/8de60358-0660-4331-9bf9-bee90100ee39/calendar?start=2025-08-22T03:00:00Z&end=2025-08-22T05:00:00Z",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"8de60358-0660-4331-9bf9-bee90100ee39",
+						"calendar"
+					],
+					"query": [
+						{
+							"key": "start",
+							"value": "2025-08-22T03:00:00Z"
+						},
+						{
+							"key": "end",
+							"value": "2025-08-22T05:00:00Z"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "schedule",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"participantIds\": [\r\n    \"0b5a5156-1c90-424d-b41d-b9580a01ebf5\"\r\n  ],\r\n  \"durationMinutes\": 30,\r\n  \"windowStart\": \"2025-08-22T06:00:00Z\",\r\n  \"windowEnd\": \"2025-08-22T23:00:00Z\",\r\n  \"title\": \"My Meet\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/schedule",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"schedule"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
